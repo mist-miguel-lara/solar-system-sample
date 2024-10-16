@@ -8,6 +8,15 @@ app.use(express.static("public"));
 app.get('/', (req, res) => {
    res.render('home')
 });
+
+app.get('/planet', (req, res) => {
+
+   let planet = req.query.planetName;
+   console.log(planet);
+   
+   res.render('home.ejs')
+});
+
 app.get('/mercury', (req, res) => {
    let mercuryInfo = planets.getMercury()
    res.render('mercury', {"mercury":mercuryInfo})
